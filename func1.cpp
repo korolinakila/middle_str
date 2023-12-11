@@ -78,3 +78,25 @@ int itc_countWords(string str){
 }
 return kol;
 }    //5
+
+string itc_maxCharWord(string str){
+int h=0,pr1 = 0, pr2, kol=0;
+string S = ' ' +str+ ' ', NS="", hw;
+for(int i=1; i<itc_len(S); i++){
+        if(S[i]==' '){
+            pr2=i;
+            NS = pol(pr1, pr2, S);
+            if(itc_len(NS)>h && slo(NS)){
+                h=itc_len(NS);
+                hw=NS;
+            }
+            NS="";
+            pr1=pr2;
+        }
+
+}
+if(h==0){
+    return "error";
+}
+return hw;
+}   //6
