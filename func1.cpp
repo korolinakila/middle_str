@@ -43,19 +43,38 @@ bool itc_compare(string s1, string s2){
      return 0>1;
  }  //4
 
- int itc_countWords(string str){
-     int t=1, f=0, d=1, lox=0;
- for(long long i=0; i<itc_len(str); i++){
-        if(str[i]==' '){
-            t++;
-            d=1;
+bool slo (string s1){
+for (int i=0; i < itc_len(s1); i++){
+    if(!((s1[i]>='a' && s1[i]<='z')||(s1[i]>='A' && s1[i]<='Z'))){
+        return false;
+    }
+
+}
+return true;
+}
+string pol(int pr1, int pr2, string S){
+    string slovo="";
+    pr1=pr1+1;
+    for(pr1; pr1<pr2; pr1++){
+        slovo+=S[pr1];
+    }
+    return slovo;
+}
+
+int itc_countWords(string str){
+    string S = ' ' +str+ ' ', NS="";
+    int pr1 = 0, pr2, kol=0;
+    for(int i=1; i<itc_len(S); i++){
+        if(S[i]==' '){
+            pr2=i;
+            NS = pol(pr1, pr2, S);
+            if(slo(NS)){
+                kol++;
+            }
+            NS="";
+            pr1=pr2;
         }
-    if(((str[i]>='A'&&str[i]<='Z')||(str[i]>='a'&&str[i]<='z')||str[i]==' ')&&d!=1){
-        lox++;
 
- }
-
-
- }
- return (f);
- }
+}
+return kol;
+}    //5
