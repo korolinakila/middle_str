@@ -61,11 +61,13 @@ return false;
 
 string itc_Cezar(string str, int k){
     string new_str="";
-
     if(k>=0){
     k=k%26;
 for(int i=0; i<itc_len(str); i++){
     if(str[i]==' '){
+        new_str+=str[i];
+    }
+    else if(str[i]>='0' && str[i]<='9'){
         new_str+=str[i];
     }
     else if(str[i]+k>'z'){
@@ -83,6 +85,9 @@ if(k<0){
     k=k%26;
 for(int i=0; i<itc_len(str); i++){
     if(str[i]==' '){
+        new_str+=str[i];
+    }
+    else if(str[i]>='0' && str[i]<='9'){
         new_str+=str[i];
     }
     else if(str[i]+k<'a'){
